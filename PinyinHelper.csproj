@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows10.0.22621.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Platforms>x64;ARM64</Platforms>
+    <PlatformTarget>$(Platform)</PlatformTarget>
+    <AssemblyName>Community.PowerToys.Run.Plugin.PinyinHelper</AssemblyName>
+    <RootNamespace>Community.PowerToys.Run.Plugin.PinyinHelper</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <Target Name="PreparePluginIcon" BeforeTargets="BeforeBuild">
+    <Exec Command="powershell -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\PrepareIcon.ps1&quot;" />
+  </Target>
+
+  <ItemGroup>
+    <Compile Remove="tests\**\*.cs" />
+    <EmbeddedResource Remove="tests\**\*" />
+    <None Remove="tests\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="PinyinHelper.Tests" />
+    <PackageReference Include="PinYinConverterCore" Version="1.0.2" GeneratePathProperty="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Wox.Plugin">
+      <HintPath>C:\Program Files\PowerToys\Wox.Plugin.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="PowerToys.ManagedCommon">
+      <HintPath>C:\Program Files\PowerToys\PowerToys.ManagedCommon.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="PowerToys.Common.UI">
+      <HintPath>C:\Program Files\PowerToys\PowerToys.Common.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="plugin.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(PkgPinYinConverterCore)\lib\netstandard2.0\PinYinConverterCore.dll">
+      <Link>PinYinConverterCore.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\PowerToysIcon.png">
+      <Link>Images\PinyinHelper.light.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\PowerToysIcon.png">
+      <Link>Images\PinyinHelper.dark.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

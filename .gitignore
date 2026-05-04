@@ -1,0 +1,23 @@
+# Build output
+bin/
+obj/
+publish/
+dist/
+
+# IDE state
+.vs/
+.vscode/
+
+# Local QA captures
+screenshots/
+
+# Windows / logs
+*.user
+*.suo
+*.log
+*.tmp
+Assets/PowerToysIcon.png
+
+# NuGet
+packages/
+*.nupkg

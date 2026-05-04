@@ -1,0 +1,14 @@
+{
+  "ID": "130D8B8D-BD50-4F07-9EA8-6C2A0EB56B62",
+  "ActionKeyword": "!",
+  "IsGlobal": false,
+  "Name": "Pinyin Helper",
+  "Author": "iwasa + Codex",
+  "Version": "0.2.0",
+  "Language": "csharp",
+  "Website": "https://github.com/Max-FullTek/powertoys-run-pinyin-helper",
+  "ExecuteFileName": "Community.PowerToys.Run.Plugin.PinyinHelper.dll",
+  "IcoPathDark": "Images\\PinyinHelper.dark.png",
+  "IcoPathLight": "Images\\PinyinHelper.light.png",
+  "DynamicLoading": true
+}
