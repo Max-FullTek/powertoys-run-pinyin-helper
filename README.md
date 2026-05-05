@@ -1,6 +1,8 @@
 # Pinyin Helper
 
-Pinyin Helper 是 PowerToys Run 的中文拼音查詢外掛。安裝後，在 PowerToys Run 輸入 `!` 加上中文或注音鍵位，就能快速查拼音。
+Pinyin Helper 是 [Microsoft PowerToys](https://github.com/microsoft/PowerToys) Run 的中文拼音查詢外掛。PowerToys 是 Microsoft 開源的 Windows 工具集合，PowerToys Run 是其中的快速啟動器；這個外掛需要安裝 PowerToys 才能執行。
+
+安裝後，在 PowerToys Run 輸入 `!` 加上中文或注音鍵位，就能快速查拼音。
 
 ## 安裝
 
@@ -103,3 +105,16 @@ ni hao
 - 需要 Windows 與 PowerToys Run。
 - 目前是 PowerToys Run 外掛，不能直接安裝到 PowerToys Command Palette。
 - 英文模式注音鍵位的預設組字可能不一定符合你想要的字，但拼音查詢仍可用。
+
+## 引用與依賴
+
+這個專案有引用下列開源專案與套件：
+
+- [Microsoft PowerToys](https://github.com/microsoft/PowerToys)：外掛宿主與 PowerToys Run API。沒有安裝 PowerToys 時，這個外掛無法執行。
+- [PinYinConverterCore 1.0.2](https://www.nuget.org/packages/PinYinConverterCore/)（[GitHub](https://github.com/netcorepal/PinYinConverterCore)）：提供中文轉拼音資料與 API。本專案會在發布檔中一併包含 `PinYinConverterCore.dll`。
+
+開發與測試時另外使用：
+
+- [xUnit](https://github.com/xunit/xunit)：單元測試框架。
+- [coverlet.collector](https://github.com/coverlet-coverage/coverlet)：測試覆蓋率收集工具。
+- [Microsoft.NET.Test.Sdk](https://github.com/microsoft/vstest)：.NET 測試執行工具。
